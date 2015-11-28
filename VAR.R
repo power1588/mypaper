@@ -24,12 +24,21 @@ adftic <- adfTest(basic,lags=1,type = "nc")@test
 adfdata <- rbind(basic,basif,basih)
 
 #combine the vector
-adfdata <- timeSeries::cbind2(basic,basif)
+basif1 <- basif[(length(basif)-36719):length(basif)]
+basif2 <- basif1[13921:length(basif1)]
+basic2 <- basic[13921:length(basic)]
+basih2 <- basih[13921:length(basih)]
+adfdata <- timeSeries::cbind2(basic,basif1)
+adfdata2 <- timeSeries::cbind2(basic2,basif2)
 adfdata <- timeSeries::cbind2(adfdata,basih)
+adfdata2 <- timeSeries::cbind2(adfdata2,basih2)
 infocrit <- VARselect(adfdata,lag.max = 20,type = "const")
 infocrit$selection
+infocrit2 <- VARselect(adfdata2,lag.max = 20,type = "const")
+infocrit2$selection
 
-varest <- VAR(adfdata,p=8,type = "const")
+varest <- VAR(adfdata,p=7,type = "const")
+varest2 <- VAR(adfdata,p=6,type = "const")
 
 if (1<0){
 varest
@@ -42,15 +51,41 @@ varcausalic <- causality(varest,cause = 'y1')
 varcausalih <- causality(varest,cause = 'y2')
 varcausalif <- causality(varest,cause = 'y3')
 
-#IRA of VAR
-iraic <- irf(varest, impusle="y1",
+#IRA of VAR y1=IC y2=IH y3=IF
+iraific <- irf(varest, impusle="y3",
+             response = "y1",n.ahead = 10,
+             ortho = TRUE, cumulative = TRUE,
+             boot = FALSE, seed = 12345)
+plot(iraific)
+iraific <- irf(varest, impusle="y3",
+               response = "y2",n.ahead = 10,
+               ortho = TRUE, cumulative = TRUE,
+               boot = FALSE, seed = 12345)
+plot(iraifih)
+
+iraicif <- irf(varest, impusle="y1",
              response = "y3",n.ahead = 10,
              ortho = TRUE, cumulative = TRUE,
              boot = FALSE, seed = 12345)
-iraih <- irf(varest, impusle="y1",
-             response = "y2",n.ahead = 10,
+plot(iraicif)
+iraicih <- irf(varest, impusle="y1",
+               response = "y2",n.ahead = 10,
+               ortho = TRUE, cumulative = TRUE,
+               boot = FALSE, seed = 12345)
+plot(iraicih)
+
+iraihic <- irf(varest, impusle="y2",
+             response = "y1",n.ahead = 10,
              ortho = TRUE, cumulative = TRUE,
              boot = FALSE, seed = 12345)
+plot(iraihic)
+iraihif <- irf(varest, impusle="y2",
+               response = "y3",n.ahead = 10,
+               ortho = TRUE, cumulative = TRUE,
+               boot = FALSE, seed = 12345)
+plot(iraihif)
+
+#SVAR Model
 Amat <- diag(3)
 Amat[2,1] <- NA
 Amat[1,2] <- NA
