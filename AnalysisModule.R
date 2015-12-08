@@ -19,29 +19,32 @@
 
 ####loading fine data
 hs300 = read.csv('E:\\Rtrial\\winddata\\hs300.csv',header = FALSE)
-hs3002013 = read.csv('E:\\Rtrial\\winddata\\hs3002013.csv',header = FALSE)
-
+#hs3002013 = read.csv('E:\\Rtrial\\winddata\\hs3002013.csv',header = FALSE)
+#hs3002010 = read.csv('E:\\Rtrial\\winddata\\hs3002010.csv',header = FALSE)
 zz500 = read.csv('E:\\Rtrial\\winddata\\zz500.csv',header = FALSE)
 sz50 = read.csv('E:\\Rtrial\\winddata\\sz50.csv',header = FALSE)
 if00 = read.csv('E:\\Rtrial\\winddata\\ifhs300.csv',header = FALSE)
-fhs3002013 = read.csv('E:\\Rtrial\\winddata\\fhs3002013.csv',header = FALSE)
+#fhs3002013 = read.csv('E:\\Rtrial\\winddata\\fhs3002013.csv',header = FALSE)
+#fhs3002010 = read.csv('E:\\Rtrial\\winddata\\fhs3002010.csv',header = FALSE)
 ic00 = read.csv('E:\\Rtrial\\winddata\\ifzz500.csv',header = FALSE)
 ih00 = read.csv('E:\\Rtrial\\winddata\\ifsz50.csv',header = FALSE)
 
 #obtain the basis of if00 ic00 ih00
 #index structural is close volume change
 #index futures structural is close volume change position
-basif <- if00$V1 - hs300$V1
-basif <- basif[!is.na(basif)]
-basif2013 <- fhs3002013$V1 -  hs3002013$V1
-basif2013[is.na(basif2013)] <- 0
-
-basih <- ih00$V1 - sz50$V1
-basih <- basih[!is.na(basih)]
-basic <- ic00$V1 - zz500$V1
+basif <- na.approx(if00$V1) - na.approx(hs300$V1)
+#fhs3002015<- na.approx(if00$V1)
+#lfutures2010 <- log(fhs3002010$V1)
+#lspot2010 <- log(na.approx(hs3002010$V1))
+#lfutures2015 <- log(fhs3002015)
+#hs3002015 <- na.approx(hs300$V1)
+#lspot2015 <- log(hs3002015)
+#basif2013 <- na.approx(fhs3002013$V1) -  na.approx(hs3002013$V1)
+basih <- na.approx(ih00$V1) - na.approx(sz50$V1)
+basic <- na.approx(ic00$V1) - na.approx(zz500$V1)
 #let NA value in basic equal 0
-basic[is.na(basic)] <- 0
-basic <- basic[!is.na(basic)]
+
+
 
 ####clean the data
 #delete 5061  15665(15664) 21690(21688) 26028(26025)
