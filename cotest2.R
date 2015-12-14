@@ -10,7 +10,7 @@ cotest2 <- function(s,f,n=1){
   y3 <- 174480
   #1.test cointegrate between spot and futures and get the residuals as
   #the error correction term
-  lmresult <- lm(s ~ f)
+  lmresult <- lm(f ~ s)
   ect <- lmresult$residuals
   #2. use the ect(erro correction term) and lag term of spot and futures
   # to run regression about the diff(spot or futures)
@@ -20,6 +20,8 @@ cotest2 <- function(s,f,n=1){
   dum1 <- c(rep(1, y1),  rep(0, (y3-y1)))
   dum2 <- c(rep(0, y1), rep(1, (y2-y1)) , rep(0, (y3-y2)))
   dum3 <- c(rep(0, y2), rep(1,(y3-y2)))
+  dum4 <- c(rep(1,y2),rep(0,(y3-y2)))
+  dum5 <- c(rep(0,y2),rep(1,(y3-y2)))
   # regresssion on log(spot) ~ ect + dum1*ect + dum2*ect +diff(lag(s)) + diff(lag(f))
   s1 <- diff(s)[-c(1:2)]
   f1 <- diff(f)[-c(1:2)]
@@ -30,6 +32,7 @@ cotest2 <- function(s,f,n=1){
   cotest1 <- lm(s1 ~  dum1[-c(1:3)]:ect[-c(1:3)] + dum2[-c(1:3)]:ect[-c(1:3)]+dum3[-c(1:3)]:ect[-c(1:3)]   
                 +  s2 + s3 + f2 + f3)
   cotestspec <- lm(s1 ~ ect[-c(1:3)] +  s2 + s3 + f2 + f3)
+  cotest4 <- lm(s1 ~ dum4[-c(1:3)]:ect[-c(1:3)] +dum5[-c(1:3)]:ect[-c(1:3)]+  s2 + s3 + f2 + f3)
   cotest2 <- lm(f1 ~  dum1[-c(1:3)]:ect[-c(1:3)] + dum2[-c(1:3)]:ect[-c(1:3)]+dum3[-c(1:3)]:ect[-c(1:3)]  
                 +  s2 + s3 + f2 + f3)
   # regression on log(futures) ~~ ect + dum1*ect + dum2*ect +diff(lag(s)) + diff(lag(f))
@@ -38,8 +41,10 @@ cotest2 <- function(s,f,n=1){
   if (n ==1){return(summary(cotest1))}
   if (n ==2){return(summary(cotest2))}
   if (n ==3){return(summary(cotestspec))}
+  if (n ==4){return(summary(cotest4))}
 }
 
 cotest2(hs300c,if00c,1)
 cotest2(hs300c,if00c,2)
 cotest2(hs300c,if00c,3)
+cotest2(hs300c,if00c,4)
