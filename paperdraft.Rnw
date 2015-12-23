@@ -1,0 +1,96 @@
+\documentclass{article}
+
+%% Load LaTeX packages
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[authoryear]{natbib}
+\usepackage{multirow}
+\usepackage{tabularx}
+
+
+%% Set knitr global options and gather data
+<<Global, include=FALSE>>=
+#### Set chunk options ####
+opts_chunk$set(fig.align='center',cache = 'TURE')
+#### Load and cite R packages ####
+# Create list of packages
+PackagesUsed <- c("knitr", "ggplot2", "repmis", "xtable","vrtest")
+# Load PackagesUsed and create .bib BibTeX file.
+# Note must have repmis package installed.
+repmis::LoadandCite(PackagesUsed, file = "Packages.bib", install = FALSE)
+#source("LoadingData.R")
+@
+
+%% Start document body
+\begin{document}
+%%%%%%%%%%%%% Create title %%%%%%%%%%%%%%%%%
+\title{Do Chinese new Index Futrures result in the "Big Fall"?}
+\author{Hai Lin     You Wang \\ Victoria University of Wellington\thanks{Email: \href{mailto:power15@126.com}{power15@126.com}}}
+\date{Dec 2015}
+\maketitle
+
+
+
+
+%%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+If one market is hard to arbitrage then its efficiency can not be ganrenteed.
+\end{abstract}
+
+%%%%%%%%%%% Article Main Text %%%%%%%%%%%%%
+\section{Introduction}
+As Chinese economy is increasingly stronger, however,her financial market is still, to some extent, at some rudimentary state. Until April 16th 2010 Chinese financial market had lanched the first Index futures(IF) which is playing vital role in institutional investor asset pool as an high-efficient and low-cost arbitrage tool. Because the IF smoothed the volatility of the market, Chinese authority decided to open the other two type of Index futures--IC and IH which are separately represent the small-cap stocks and big-cap stocks.
+\pagebreak
+
+\section{Literature}
+
+
+\section{Data and method}
+\subsection{IC,IH,IF statistical summary}
+\subsection{Method}
+
+
+
+\section{Empirical analysis}
+\subsection{VAR model}
+
+
+\subsection{VECM}
+  As we know that the time series of Index futures and Index could have relationship called cointegration. We test them with standard method to prove that the existences of cointegration of the three index futures and index.
+  We apply the VECM with dummy variables that as indicators to represent the major events. As the IF was launched in 20100416 which is the most dominant among the three for the other which were introduced until 20150416, we would like to firstly analyse the VECM of IF(index futures) and HS300(Index) before 20150416 and during the shorting ban on 20150709.
+  
+\subsection{Futures market response}
+
+\subsection{Spot market efficiency}
+\subsubsection{Sequential Autocorrelation}
+We can simply apply the AR model to calculate the sequential autocorrelation as an indicater for measuring the efficiency of the market Index.
+
+\subsubsection{Automatic Variance ratio test}
+Since the Autocorrelation test, to some extent, is still implausible for the skeptical. Now we turn to another test that can judge the randomness of serises from the perspective of variance ratio. We collect the results of the two test in the table as follow:
+
+\pagebreak
+
+\begin{table}[h]
+  \caption{Box-Ljung test and Automatic Variance Ratio test}
+  \label{ACtesttable}
+  \begin{center}
+    \begin{tabular}{l | c | c}
+      \hline
+      Observation & Box-Ljung test statistics & Auto.VR statistics \\
+      \hline \hline
+      r1 & 2347.8 & 10.6010  \\
+      r2 & 3397.1 & 13.6424 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+The statistics of Box-Ljung test are with lags level of 10, and p value of both are less than 1 percent, on the other hand, the statistics of Auto.VR test are also extremly salient with p value less than 1 percent. With the aid of the two tests, we know that the situation of the serial autocorrelation before and after shorting ban. Since even though the time window that cover the span of series before shorting ban happens to in the first part of "Big Fall" when start at the mid June 2015,which may affect the market efficiency. However, in comparison with the series after the shorting ban, the market efficiency of the former is still better than the latter. Furthermore, we can see that the shorting bans of both spot market and Index futures market do deteriorate the market efficiency of spot market.
+
+\medskip
+
+With the comparision of variance ratio statistics, moreover, we can know that the variance statistics of r2 is larger than r1, which means that the efficiency of spot market do deteriorate after the shorting ban of index futures market measured by variance ratio test. Because the statistic of automatic variance ratio test with convergence in distribution to standard normal distirbution, both above statistics are significantly salient.
+
+\section{Reference}
+
+\end{document}
