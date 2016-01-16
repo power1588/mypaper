@@ -1,5 +1,11 @@
 
 #specially for IF with 3 dummy variables 
+tid <- rep(18:1, rep(240,18))
+tid0 <- rep(20:1, rep(240,20))
+tidt <- rep(20:12, rep(240,9))
+tidz <- rep(tid0, M)
+tid <- c(tid,tidz)
+tid <- c(tid,tidt)
 
 cotest2 <- function(s,f,n=1){
   # 20121128~20150416
@@ -10,7 +16,8 @@ cotest2 <- function(s,f,n=1){
   y3 <- 174480
   #1.test cointegrate between spot and futures and get the residuals as
   #the error correction term
-  lmresult <- lm(f ~ s)
+  lmresult <- lm(f ~ s+ tid)
+  #lmresult <- lm(f ~ s)
   ect <- lmresult$residuals
   #2. use the ect(erro correction term) and lag term of spot and futures
   # to run regression about the diff(spot or futures)
@@ -30,7 +37,7 @@ cotest2 <- function(s,f,n=1){
   s3 <- diff(s)[1:(length(s)-3)]
   f3 <- diff(f)[1:(length(s)-3)]
   cotest1 <- lm(s1 ~  dum1[-c(1:3)]:ect[-c(1:3)] + dum2[-c(1:3)]:ect[-c(1:3)]+dum3[-c(1:3)]:ect[-c(1:3)]   
-                +  s2 + s3 + f2 + f3)
+                +  s2 + s3 + f2 + f3 )
   cotestspec <- lm(s1 ~ ect[-c(1:3)] +  s2 + s3 + f2 + f3)
   cotest4 <- lm(s1 ~ dum4[-c(1:3)]:ect[-c(1:3)] +dum5[-c(1:3)]:ect[-c(1:3)]+  s2 + s3 + f2 + f3)
   cotest2 <- lm(f1 ~  dum1[-c(1:3)]:ect[-c(1:3)] + dum2[-c(1:3)]:ect[-c(1:3)]+dum3[-c(1:3)]:ect[-c(1:3)]  
