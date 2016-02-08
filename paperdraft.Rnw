@@ -6,6 +6,7 @@
 \usepackage[authoryear]{natbib}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage{rotating}
 
 
 %% Set knitr global options and gather data
@@ -24,8 +25,8 @@ repmis::LoadandCite(PackagesUsed, file = "Packages.bib", install = FALSE)
 %% Start document body
 \begin{document}
 %%%%%%%%%%%%% Create title %%%%%%%%%%%%%%%%%
-\title{Do Chinese new Index Futrures result in the "Big Fall"?}
-\author{Hai Lin     You Wang \\ Victoria University of Wellington\thanks{Email: \href{mailto:power15@126.com}{power15@126.com}}}
+\title{Are index futures the bad boy? Evidence from Chinese index futures market in 2015  }
+\author{Hai Lin     You Wang\thanks{Email: \href{mailto:power15@126.com}{power15@126.com}} \\ Victoria University of Wellington  Xiamen University P.R China}
 \date{Dec 2015}
 \maketitle
 
@@ -41,12 +42,252 @@ If one market is hard to arbitrage then its efficiency can not be ganrenteed.
 \section{Introduction}
 As Chinese economy is increasingly stronger, however,her financial market is still, to some extent, at some rudimentary state. Until April 16th 2010 Chinese financial market had lanched the first Index futures(IF) which is playing vital role in institutional investor asset pool as an high-efficient and low-cost arbitrage tool. Because the IF smoothed the volatility of the market, Chinese authority decided to open the other two type of Index futures--IC and IH which are separately represent the small-cap stocks and big-cap stocks.
 \pagebreak
+\section{Backgroud}
+Firstly, we would like to introduce the advent of Chinese Stock Index Futures.
+
+\begin{table}[h]
+  \caption{The advent of Chinese Stock Index Futures}
+  \label{Advent}
+  \begin{center}
+    \begin{tabular}{l | p{5cm}}
+      \hline
+      Date & Event \\
+      \hline \hline
+      2010.04.16 & The First Index Futures of CSI 300 launched, where the CSI300 index represents the top300 capital and liquidity stocks in both Shanghai and Shenzhen Security Exchange.   \\
+      \hline
+      2015.04.16 & Another two types of Index futures introduced in the market named CSI 500 Smallcap Index futures(IC) and SSE 50 Index futures(IH), separately. \\
+      \hline
+    \end{tabular}
+    \medskip
+    
+  This table illustrates the birth of Chinese Index Futures
+  \end{center}
+\end{table}
+
+
+\begin{sidewaystable}[h]
+  \caption{Contract specifications of the three Chinese stock index futures}
+  \label{Contract}
+  \begin{center}
+    \begin{tabular}{ c |  p{5cm} | p{5cm} | p{5cm}  }
+      \hline
+      Trading Code & IF & IC & IH \\
+      \hline \hline
+      Underlying Index & CSI300 Index  & CSI 500 Smallcap Index  &  SSE 50 Index \\
+      \hline
+      Contract multiplier &  300 CNY &  200 CNY &  300 CNY \\
+      \hline
+      Tick size & 0.2 point & 0.2 point & 0.2 point \\
+      \hline
+      Contract months	& Monthly$:$ current month, next month, next two calendar quarters & The same as IF  & The same as IF\\
+      \hline
+      Trading hours & Before 2016.01.01, 9:15 am to 11:30 am, and 1:00 pm to 3:15 pm, After 2016.01.01,changed as the spot market, that is, 9:30 am to 11:30 am, and 1:00 pm to 3:00 pm   & The same as IF  & The same as IF\\
+      \hline
+      Limit up/down &  $\pm 10 $ percent of settlement price on the previous trading day &   $\pm 7 $ percent of settlement price on the previous trading day & The same as IC \\ 
+      \hline
+      Margin requirement & After 2016.01.01, changed to $40\% $ for non-arbitrage account and $20\% $ & The same as IF & The same as IF \\
+      \hline
+      Last trading day & The third friday of the contract month, postponed to next trading day if it is a holiday & The same as IF & The same as IF \\
+      \hline
+      Delivery day  & The same as the last trading day & The same as the last trading day & The same as the last trading day\\
+      \hline
+      Settlement method & Cash settlement & Cash settlement &Cash settlement \\
+      \hline
+      Exchange & China Financial Futures Exchange & China Financial Futures Exchange & China Financial Futures Exchange\\
+      \hline
+    \end{tabular}
+    \medskip
+    This table illustrates the contract specifications of three Chinese stock Index Futures
+  \end{center}
+\end{sidewaystable}
+
+
+\begin{table}[h]
+  \caption{The log of Chinese stock index futures market regulation in 2015}
+  \label{Regulation}
+  \begin{center}
+    \begin{tabular}{l | p{5cm} | p{7cm}}
+      \hline
+      Date & Event  & Details\\
+      \hline 
+      2015.07.08 & Raise the margin rate of CSI 500 Smallcap Index Futures &  Since the delivory on 2015.7.8, the present sell maitainace margin rate will up from $10\%$ to $20\%$, furthermore, since 2015.07.09, the margin rate will up to $30\%$. In the same time, in the spot market the institutional investors were forbidden to sell securities. \\
+      \hline
+      2015.07.31 & Change the standard of transaction fee & Transaction fee is consisted of trading fee and declared fee.  \\
+      \hline
+      2015.08.25 & Raise the transaction fee & Transaction fee is up to $1.15\%\% $\\
+      \hline
+      2015.08.25 & Raise the non-arbitrage maitainance margin & Since the delivory on 2015.08.26, from $10\%$ to $12\%$, since 2015.08.27, up to $15\%$, since 2015.08.28, up to $20\%$ \\
+      \hline
+      2015.08.28 & Raise the non-arbitrage maitainance margin & Since the clearance on 2015.08.31, for the non-arbitrage account the maitainance margin rate up to $30\%$ & \\
+      \hline
+      2015.09.02 & Raise the transaction fee  & The transaction fee of open and close the new postion in the same day up to $ 23\%\% $ \\
+      \hline
+      2015.09.02 & Raise the maitainance margin & For non\-arbitrage account from $30\%$ up to $40\%$, for arbitrage account from $10\%$ up to $20\%$ \\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table lists the important policies in 2015 to regulate the Chinese stock index futures market.
+\end{table}
+
+
 
 \section{Literature}
 
 
 \section{Data and method}
 \subsection{IC,IH,IF statistical summary}
+  Let us have a glimpse of the statistics of spot market and index futures market.
+
+\begin{sidewaystable}[h]
+  \caption{Summary of Sample Statistics(Index)}
+  \label{SummaryIN}
+  \begin{center}
+    \begin{tabular}{ c c c c c c c  }
+      \hline
+      CSI 300 & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. &  \\
+      \hline
+      -0.009283 & -0.00003483 &  0 & 0.0000003668 & 0.00003449 & 0.007662 &0.0313814689 &  \\
+      \hline
+      CSI 500 & & & & & & &  \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & \\
+      \hline
+       -0.007892 & -0.00006477 &  0.000003294 & -0.000000109 & 0.00006777 & 0.005569  & 0.018780793 & \\
+      \hline
+      SSE 50 & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. &  \\
+      \hline
+       -0.01108 & -0.00007069 &  0 & -0.000000909 & 0.00006526 & 0.008613 & 0.019570776 & \\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table present the statistics of Chinese Stock Indecies. As we can see that it happens to be that the standard error of smallcap index smaller that the other two, actually, during the "Big Fall", there were over 1000 stocks suspendended most of which were the smallcap.
+\end{sidewaystable}
+
+
+
+
+\begin{sidewaystable}[h]
+  \caption{Summary of Sample Statistics(IF)}
+  \label{SummaryIF}
+  \begin{center}
+    \begin{tabular}{ c c c c c c c c c  }
+      \hline
+      IF00 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.009924 & -0.00005396 &  0 & 0.0000003501 & 0.0000536 & 0.008825 & 0.0311612674 & 7.455938 & 11.21026 & \\
+      \hline
+      IF01 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.01019 & -0.00005339 &  0 & 0.0000003322 & 0.00005324 & 0.009225 & 0.0309466813 & 4.820199 & 9.618537 & \\
+      \hline
+      IF02 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.01062 & -0.00005273 &  0 & 0.0000003007 & 0.00005239 & 0.009362 & 0.0306691208 & 3.993641 & 9.798443 & \\
+      \hline
+      IF03 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.01152 & -0.0000474 &  0 & 0.0000002742 & 0.00004677 & 0.009709 & 0.0305640568 & 2.36193 & 8.153831 & \\
+      \hline
+      
+    \end{tabular}
+    \medskip
+    
+  \end{center}
+  This table present the statistics of Chinese Index Futures CSI 300 (IF). We can see that different maturities of IF share the almost return distribution, however, in terms of trading volumn and holding position, there is an obvious decreasing trend as the maturities go longer.
+\end{sidewaystable}
+
+\begin{sidewaystable}[h]
+  \caption{Summary of Sample Statistics(IC)}
+  \label{SummaryIC}
+  \begin{center}
+    \begin{tabular}{ c c c c c c c c c  }
+      \hline
+      IC00 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.01156 & -0.0001063 &  0 & -0.0000002077 & 0.000108 & 0.009609 & 0.0202735475 & 5.122865 & 9.461805 & \\
+      \hline
+      IC01 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.00626 & -0.0001038 &  0 & -0.0000003085 & 0.0001064 & 0.009428 & 0.0217390915 & 3.059444 & 7.85512 & \\
+      \hline
+      IC02 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.009323 & -0.00009004 &  0 & -0.0000004999 & 0.00009026 & 0.008269 & 0.0234505407 & 2.409037 & 7.645026 & \\
+      \hline
+      IC03 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.01112 & 0 &  0 & -0.0000006732 & 0 & 0.009385 & 0.0242464857 & 1.736 & 6.334452 & \\
+      \hline
+      
+    \end{tabular}
+    \medskip
+    
+  \end{center}
+  This table present the statistics of Chinese Index Futures CSI 500 Smallcap (IC), we can also find the almost same characteristics as IF, while as IC, to some extent , is still relative young index futures, so there are less liquidity provided for the IC03 which price may be unreasonalbe. 
+\end{sidewaystable}
+
+
+\begin{sidewaystable}[h]
+  \caption{Summary of Sample Statistics(IH)}
+  \label{SummaryIH}
+  \begin{center}
+    \begin{tabular}{ c c c c c c c c c  }
+      \hline
+      IH00 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+      -0.00865 & -0.0000968 &  0 & -0.000001026 & 0.00009432 & 0.01058 & 0.020838459 & 5.361786 & 9.852787 & \\
+      \hline
+      IH01 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.007196 & -0.00009439 &  0 & -0.000001072 & 0.00009015 & 0.01061  & 0.021902006 & 3.405919 & 8.144651 & \\
+      \hline
+      IH02 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.009125 & -0.00008829 &  0 & -0.000001121 & 0.00008364 & 0.01108 & 0.023382653 & 2.803619 & 8.174122 & \\
+      \hline
+      IH03 & & & & & & & & &   \\
+      \hline 
+      MIN & 1st Qu. & Median & Mean & 3rd Qu. & Max. & std. & mean of log(vol) & mean of log(position) &  \\
+      \hline
+       -0.01038 & 0 &  0 & -0.000001213 & 0 & 0.01093 & 0.024671875 & 1.587102 & 5.910035 & \\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table present the statistics of Chinese Index Futures SSE 50 Bigcap (IH), since IH also is newly lauched, even though it represent the top50 bigcap stocks in Shanghai Equidity Exchange, its price with long maturities are bothered by the illiquidity problem, too.
+\end{sidewaystable}
+
+
+
+
 \subsection{Method}
 
 
@@ -58,34 +299,305 @@ As Chinese economy is increasingly stronger, however,her financial market is sti
 \subsection{VECM}
   As we know that the time series of Index futures and Index could have relationship called cointegration. We test them with standard method to prove that the existences of cointegration of the three index futures and index.
   We apply the VECM with dummy variables that as indicators to represent the major events. As the IF was launched in 20100416 which is the most dominant among the three for the other which were introduced until 20150416, we would like to firstly analyse the VECM of IF(index futures) and HS300(Index) before 20150416 and during the shorting ban on 20150709.
-  
-\subsection{Futures market response}
+  With reference of Gonzalo and Granger(1995) and Hasbrouck(1995), we employ the two price discovery measures to judge the information contents of between spot market and futures market respectively.
 
-\subsection{Spot market efficiency}
+\begin{sidewaystable}[h]
+  \caption{The measure of Gonzalo and Granger(1995) for IF}
+  \label{GGif}
+  \begin{center}
+  \\
+    \begin{tabular}{ p{5cm}  p{5cm}  p{5cm} p{5cm}}
+      \hline
+      CSI 300 spot v.s. IF00 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & 0.217409 &  0.173289 & 0.084013 &\\
+      \hline
+      CSI 300 spot v.s. IF01 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & 0.246813 &  0.219991 & 0.054906 &\\
+      \hline
+      CSI 300 spot v.s. IF02 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & 0.260280 & 0.219775 & 0.041132 &\\
+      \hline
+      CSI 300 spot v.s. IF03 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & 0.260336 & 0.226002 & 0.135952 &\\
+      \hline
+
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table illustrates the Gonzalo-Granger measure of CSI300 spot v.s. index futures, where the dummy variables D1, D2 and D3 represent the period 2012.11.27 to 2015.04.16, 2015.04.16 to 2015.07.09 and 2015.07.09 to 2015.11.28,respectively. We can observe that the downside trend which means that the deterioration of pricing discovery ability of all the four maturities of CSI300 Index futres as the process of shorting ban.
+\end{sidewaystable}
+
+\begin{sidewaystable}[h]
+  \caption{The measure of Gonzalo and Granger(1995) for IC}
+  \label{GGic}
+  \begin{center}
+  \\
+    \begin{tabular}{ p{5cm}  p{5cm}  p{5cm} p{5cm}}
+      \hline
+      CSI 500 spot v.s. IC00 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - &  0.104961 & 0.131655 &\\
+      \hline
+      CSI 500 spot v.s. IC01 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - &  0.122867 &  0.125057 &\\
+      \hline
+      CSI 500 spot v.s. IC02 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - & 0.136135 & 0.122774 &\\
+      \hline
+      CSI 500 spot v.s. IC03 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - & 0.186885 & 0.028752 &\\
+      \hline
+
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table illustrates the Gonzalo-Granger measure of CSI500 spot v.s. index futures. As IC was lauched until 2015.04.16, we just apply D2 and D3. However, we find an counter-intuitive phenomenon that except IC03, the other three maturity IC almost kept the same level of pricing discovery ability. This may be attribued to the inherent limitation of arbitrage for smallcap stocks.
+\end{sidewaystable}
+ 
+\begin{sidewaystable}[h]
+  \caption{The measure of Gonzalo and Granger(1995) for IH}
+  \label{GGih}
+  \begin{center}
+  \\
+    \begin{tabular}{ p{5cm}  p{5cm}  p{5cm} p{5cm}}
+      \hline
+      SSE 50spot v.s. IH00 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - &  0.073500 & 0.004752 &\\
+      \hline
+      SSE 50spot v.s. IH01 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - &  0.051792 &   0.038522 &\\
+      \hline
+      SSE 50spot v.s. IH02 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - & 0.008568 & 0.092106 &\\
+      \hline
+      SSE 50spot v.s. IH03 & $D1=1, D2=D3=0$ & $D2=1, D1=D3=0$ & $D3=1, D1=D2=0$  \\
+      \hline
+      Theta & - & 0.2216870 & 0.2175957 &\\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table illustrates the Gonzalo-Granger measure of SSE50 spot v.s. index futures. The situations of IH00 and IH01 show that the price discovery ability went from bad to worse. Whereas the cases of IH02 and IH03 are unreasonalbe for the illiqudity and sparse trading record.
+\end{sidewaystable}
+
+\begin{sidewaystable}[h]
+  \caption{The measure of Hasbrouck(1995) for IF}
+  \label{Hif}
+  \begin{center}
+  \\
+    \begin{tabular}{ c c c c c c }
+      \hline
+      CSI 300 spot v.s. IF00 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      0.846988 & 0.153012 & 0.919911 &0.080089 & 0.987297 & 0.012703 & \\
+      \hline
+      CSI 300 spot v.s. IF01 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      0.764213 & 0.235787 & 0.832930 & 0.167070 & 0.995064 & 0.004936 & \\
+      \hline
+      CSI 300 spot v.s. IF02 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      0.714305 & 0.285695 & 0.827573 & 0.172427 & 0.997295 & 0.002705 & \\
+      \hline
+      CSI 300 spot v.s. IF03 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      0.691119 & 0.308881 & 0.794075 & 0.205925 & 0.971870 & 0.028130 & \\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}  
+  This table illustrates the Hasbrouck measure of CSI300 spot v.s. index futures. The S1 and S2 stand for the upper bound and lower bound of Hasbrouck measure which correspond to the information shares of spot and index futures market. For the sake of robustness, we utilize the Hasbrouck measure to test the pricing discovery of the three index futures with 4 maturities again and nearly obtain the same results.
+\end{sidewaystable}
+
+\begin{sidewaystable}[h]
+  \caption{The measure of Hasbrouck(1995) for IC}
+  \label{Hic}
+  \begin{center}
+  \\
+    \begin{tabular}{ c c c c c c }
+      \hline
+      CSI 500 spot v.s. IC00 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.959815 & 0.040185 & 0.931261 & 0.068739 & \\
+      \hline
+      CSI 500 spot v.s. IC01 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.933733 & 0.066267 & 0.930860 & 0.069140 & \\
+      \hline
+      CSI 500 spot v.s. IC02 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.911152 & 0.088848 & 0.930752 & 0.069248 & \\
+      \hline
+      CSI 500 spot v.s. IC03 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.798991 & 0.201009 & 0.997002 & 0.002998 & \\
+      \hline
+    \end{tabular}
+    \medskip
+    
+  This table illustrates the Hasbrouck measure of CSI500 spot v.s. index futures
+  \end{center}
+\end{sidewaystable}
+
+\begin{sidewaystable}[h]
+  \caption{The measure of Hasbrouck(1995) for IH}
+  \label{Hih}
+  \begin{center}
+  \\
+    \begin{tabular}{ c c c c c c }
+      \hline
+      SSE50 spot v.s. IH00 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.993533 & 0.006467 & 0.999979 & 0.000021 & \\
+      \hline
+      SSE50 spot v.s. IH01 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+       - & - & 0.996426 & 0.003574 & 0.998383 & 0.001617 & \\
+      \hline
+      SSE50 spot v.s. IH02 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.999913 & 0.000087 & 0.989924 & 0.100756 & \\
+      \hline
+      SSE50 spot v.s. IH03 \\
+      \hline
+       \multicolumn{2}{c}{$D1=1, D2=D3=0$}    & \multicolumn{2}{c}{$D2=1, D1=D3=0$} &  \multicolumn{2}{c}{$D3=1, D1=D2=0$} &\\
+      \hline
+      S1 & S2 &  S1 & S2 & S1 & S2 &\\
+      \hline
+      - & - & 0.916176 & 0.083824 & 0.919122 & 0.080878 & \\
+      \hline
+    \end{tabular}
+    \medskip
+    
+  This table illustrates the Hasbrouck measure of SSE50 spot v.s. index futures
+  \end{center}
+\end{sidewaystable}
+
+
+
+\subsection{Market Efficiency}
 \subsubsection{Sequential Autocorrelation}
 We can simply apply the AR model to calculate the sequential autocorrelation as an indicater for measuring the efficiency of the market Index.
 
-\subsubsection{Automatic Variance ratio test}
-Since the Autocorrelation test, to some extent, is still implausible for the skeptical. Now we turn to another test that can judge the randomness of serises from the perspective of variance ratio. We collect the results of the two test in the table as follow:
+\begin{sidewaystable}[h]
+  \caption{Box-Ljung test}
+  \label{AR}
+  \begin{center}
+    \begin{tabular}{c c c c c c c c c c }
+      \hline
+      \multicolumn{2}{c}{Panel A 2015.04.16 to 2015.07.09 }\\
+      \hline 
+      CSI300( 2 lag ) & 1152.2 & IF00(3 lag) & 9.7132 & IF01(3 lag) & 5.145 & IF02(3 lag)& 2.7308 & IF03(3 lag) & 9.9662\\
+      \hline
+      CSI 500( 2 lag ) & 2233.8 & IC00(3 lag)  & 8.7098 & IC01(3 lag)  & 138.17 & IC02（3 lag)  & 14.455 & IC03(3 lag)  & 36.248 \\
+      \hline
+      SSE 50( 2 lag ) & 394.91 & IH00(3 lag)  & 26.068 & IH01(3 lag)  & 30.539 & IH02（3 lag)  & 19.754 & IH03(3 lag)  & 21.141 \\
+      \hline
+      \hline
+      \multicolumn{2}{c}{Panel B 2015.07.09 to 2015.11.28 }\\
+      \hline 
+      CSI300( 2 lag ) & 2462.9 & IF00(3 lag) & 22.759 & IF01(3 lag) & 19.629 & IF02(3 lag)& 26.796 & IF03(3 lag) & 60.007\\
+      \hline
+      CSI 500( 2 lag ) & 2496.4 & IC00(3 lag)  & 20.803 & IC01(3 lag)  & 12.455 & IC02(3 lag)  & 45.598 & IC03(3 lag)  & 21.224 \\
+      \hline
+      SSE 50( 2 lag ) & 1414.8 & IH00(3 lag)  & 9.3198 & IH01(3 lag)  & 116.95 & IH02（3 lag)  & 101.04 & IH03(3 lag)  & 53.931 \\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table summarise the results of AR test of spot market and index futures market. With the comparison of corresponding statistics of Panel A and B, we find that the serial correlations soar with the execution of shorting ban, which confirms that the market efficiency go down with the market regulations of Chinese financial supervision system.
+\end{sidewaystable}
+
+\subsubsection{Automatic Variance Ratio Test}
+Since the Autocorrelation test, to some extent, is still implausible for the skeptical. Now we turn to another test that can judge the randomness of serises from the perspective of variance ratio. We collect the results of automatic variance ratio test in the table as follow:
+\begin{sidewaystable}[h]
+  \caption{Variance ratio test}
+  \label{VR}
+  \begin{center}
+    \begin{tabular}{c c c c c c c c c c }
+      \hline
+      \multicolumn{2}{c}{Panel A 2015.04.16 to 2015.07.09 }\\
+      \hline 
+      CSI300 & 8.274988 & IF00 & -0.2400574 & IF01 & -0.2562378 & IF02& 0.06718339 & IF03 & -2.021963\\
+      \hline
+      CSI 500 & 11.46383 & IC00  & -1.054061 & IC01  & -6.246858 & IC02  & -2.521661 & IC03  & -3.833792 \\
+      \hline
+      SSE 50& 3.391253 & IH00 & -1.424926 & IH01  & -4.155782 & IH02  & -3.595479 & IH03  & -2.224631 \\
+      \hline
+      \hline
+      \multicolumn{2}{c}{Panel B 2015.07.09 to 2015.11.28 }\\
+      \hline 
+      CSI300 & 13.6424 & IF00 & 0.2707111 & IF01 & -0.9636719 & IF02 & -0.8565505 & IF03 & -4.963146\\
+      \hline
+      CSI 500 & 11.62708 & IC00  & -0.6000657 & IC01  & -0.6197293 & IC02  &-3.25673 & IC03 & -2.288791 \\
+      \hline
+      SSE 50 & 10.55043 & IH00  & -0.6704793 & IH01  & -6.958497 & IH02  & -6.772934 & IH03 & -4.168941 \\
+      \hline
+    \end{tabular}
+    \medskip
+  \end{center}
+  This table summarise the results of automatic variance ratio test of spot market and index futures market. The almost same conclusions as AR test come with Variance ratio test.
+\end{sidewaystable}
 
 \pagebreak
 
-\begin{table}[h]
-  \caption{Box-Ljung test and Automatic Variance Ratio test}
-  \label{ACtesttable}
-  \begin{center}
-    \begin{tabular}{l | c | c}
-      \hline
-      Observation & Box-Ljung test statistics & Auto.VR statistics \\
-      \hline \hline
-      r1 & 2347.8 & 10.6010  \\
-      r2 & 3397.1 & 13.6424 \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{table}
 
-The statistics of Box-Ljung test are with lags level of 10, and p value of both are less than 1 percent, on the other hand, the statistics of Auto.VR test are also extremly salient with p value less than 1 percent. With the aid of the two tests, we know that the situation of the serial autocorrelation before and after shorting ban. Since even though the time window that cover the span of series before shorting ban happens to in the first part of "Big Fall" when start at the mid June 2015,which may affect the market efficiency. However, in comparison with the series after the shorting ban, the market efficiency of the former is still better than the latter. Furthermore, we can see that the shorting bans of both spot market and Index futures market do deteriorate the market efficiency of spot market.
+
+The table contains the results of two tests to judge the market efficiency of spot market. The statistics of Box-Ljung test are with lags level of 10, and p value of both are less than 1 percent, on the other hand, the statistics of Auto.VR test are also extremly salient with p value less than 1 percent. With the aid of the two tests, we know that the situation of the serial autocorrelation before and after shorting ban. Since even though the time window that cover the span of series before shorting ban happens to in the first part of "Big Fall" when start at the mid June 2015,which may affect the market efficiency. However, in comparison with the series after the shorting ban, the market efficiency of the former is still better than the latter. Furthermore, we can see that the shorting bans of both spot market and Index futures market do deteriorate the market efficiency of spot market.
 
 \medskip
 
