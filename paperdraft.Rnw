@@ -7,7 +7,7 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{rotating}
-
+\usepackage{indentfirst}
 
 %% Set knitr global options and gather data
 <<Global, include=FALSE>>=
@@ -35,15 +35,21 @@ repmis::LoadandCite(PackagesUsed, file = "Packages.bib", install = FALSE)
 
 %%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-If one market is hard to arbitrage then its efficiency can not be ganrenteed.
+This article illustrates that before and after the shorting ban in 9th July 2015 the reactions of Chinese index futures and spot market, where two new-born index futures also encountered the “Big Fall” that Chinese market index plunged over 30\% in two months. Our study is focused on the shorting ban effects of Chinese financial market that result in imbalances and disorders in Index futures market and spot market. We conclude two major findings. Firstly, shorting ban and limitation of trade have fatal influences on the price discovery ability of index futures. We apply Gonzalo and Granger(1995) and Hasbrouck(1995) measures based on VECM with dummy variables to provide an insight of price discovery ability of index futures over several time intervals. Violent contrasts exist before and after the shorting ban for the three index futures with four maturities in accordance. Secondly, shorting ban lead to inefficiency of spot market. With the aid of autocorrelation and automatic variance ratio, we test the efficiency of spot market.
 \end{abstract}
 
 %%%%%%%%%%% Article Main Text %%%%%%%%%%%%%
 \section{Introduction}
-As Chinese economy is increasingly stronger, however,her financial market is still, to some extent, at some rudimentary state. Until April 16th 2010 Chinese financial market had lanched the first Index futures(IF) which is playing vital role in institutional investor asset pool as an high-efficient and low-cost arbitrage tool. Because the IF smoothed the volatility of the market, Chinese authority decided to open the other two type of Index futures--IC and IH which are separately represent the small-cap stocks and big-cap stocks.
+  
+  As Chinese economy is increasingly important to global economy, however, her financial market is still, to some extent, at some rudimentary state. Until April 16th 2010 Chinese financial market had launched the first Index futures(IF) which is playing vital role in institutional investor asset pool as an high-efficient and low-cost arbitrage tool. Because the IF smoothed the volatility of the market(related reference), Chinese authority decided to open the other two types of Index futures–IC and IH which are separately represent the small-cap stocks and big-cap stocks.  
+  
+  The main contributions of this paper are listed as follow. Firstly, we provide an insight that the reaction of newly lauched index futures when they encounter shorting ban during the "Big Fall" from the point view of pricing discovery ability. Secondly, we try to break up the pandemic rumor that index futures trigered the market crash, in fact, index futures are just neutral financial tools, while shorting ban not only slow down the price dicovery speed, but also evaporate the liquidity of Chinese financial market, deteriating the quality of market. Thirdly, we illustrate the side-effects of shorting ban, that after shorting ban lead to market efficiency from bad to worse.
+
 \pagebreak
 \section{Backgroud}
 Firstly, we would like to introduce the advent of Chinese Stock Index Futures.
+
+We try to break up the pandemic rumor that index futures triggered the market crash, in fact, index futures are just neutral financial tools, while shorting ban not only slowed down the price discovery speed, but also deteriorating the quality of market. 
 
 \begin{table}[h]
   \caption{The advent of Chinese Stock Index Futures}
@@ -130,13 +136,43 @@ Firstly, we would like to introduce the advent of Chinese Stock Index Futures.
   This table lists the important policies in 2015 to regulate the Chinese stock index futures market.
 \end{table}}
 
+\section{Data}
+We use the data from 28th December 2012 to 28th December 2015 of Chinese index spot and futures, where there are three index underlying and corresponding three index futures with four maturities, i.e., current month, next month, and the next two seasonal months. As the first step to reconstruct data by using linear interpolation to add the missing value and taking logarithm of price sequences, we also take into consideration of cost-of-carry model to get rid of maturity influence.(related reference)
+
+\section{Empirical methodology}
+
+We focus on the shorting ban effects that exert to index futures and spot market with two different aspects. Firstly, we apply VECM with dummy variables as indicators to distinguish the effects of different time intervals. Secondly, we utilize autocorrelation test and automatic variance ratio to shed light on the market efficiency of spot market.
 
 
-\section{Literature}
+\subsection{Measures of Pricing Discovery Ability of Index Futures}
+
+Taking the logarithms of futures $f_t$ and spot prices $s_t$ separately, and we know that they are cointegrated with a common stochastic trend for the sake of derivatives and underlying should have the same risk factor. According to cost-of-carry model we can present the cointegrating relationship as follow:
+
+\begin{equation}
+  f_{t} = a_{0} + a_1s_t
+\end{equation}
+where $a_0$ related to the term to maturity, $a_1$ should approximately equal to 1 if the market is efficient and frictionless.
+
+We contract the VECM with three dummy variables: $D_1,D_2,D_3$, as follow:
+\begin{equation}
+\Delta s_t = b_{s,0} + (D_{s,1}+D_{s,2}+D_{s,3})ect_{t-1}+ \sum_{i=1}^n b_{s,s}^i \Delta s_{t-i} + \sum_{i=1}^n b_{f,s}^i \Delta f_{t-i} +e_{s,t}
+\end{equation}
+\begin{equation}
+\Delta f_t = b_{f,0} + (D_{f,1}+D_{f,2}+D_{f,3})ect_{t-1}+ \sum_{i=1}^n b_{s,f}^i \Delta s_{t-i} + \sum_{i=1}^n b_{f,f}^i \Delta f_{t-i} +e_{f,t}
+\end{equation}
+where $D_1,D_2,D_3$ separately represent the period from 2012.11.28 to 2015.04.16, 2015.04.16 to 2015.07.09, and 2015.07.09 to 2015.11.28, that is, $D_i=1 (i=1,2,3)$ when data is in the corresponding period otherwise it equals to 0. Moreover, $ect_{t-1}= f_t-a_0-a_1 s_t$ represents the error correction term.
+
+Two aspects -- short-term and long-term -- relationships exist between index futures and spot index, as the short-term effects can be explained by the lags of $f_t$ and $s_t$, while the coefficients of  $ect_{t-1}$, the sum of $D_1, D_2,D_3$, measures the speed of reaction to long-term effects. For instance, there exists disequilibrium that index future price is somewhat relatively higher than spot price, it will lead to potential negative change of futures price or positive change of spot index if the arbitrage force can correct the mispricing by selling on futures and buying stocks to obtain the riskless profits.
+
+The short-term prediction hypothesis supposes that the lags of futures and spot prices have salient predictive power of each other current prices. We can conduct corresponding Granger-causality test for futures and spot prices in the above VECM:
+
+\subsection{Measures of Spot Market Efficiency}
 
 
-\section{Data and method}
+\section{Empirical analysis}
+
 \subsection{IF, IC, IH statistical summary}
+  
   Let us have a glimpse of the statistics of spot market and index futures market.
 
 \begin{table}[h]
@@ -180,18 +216,15 @@ Firstly, we would like to introduce the advent of Chinese Stock Index Futures.
 
 
 
-
-\subsection{Method}
-
-
-
-\section{Empirical analysis}
 \subsection{VAR model}
 
 
 \subsection{VECM}
+  
   As we know that the time series of Index futures and Index could have relationship called cointegration. We test them with standard method to prove that the existences of cointegration of the three index futures and index.
+  
   We apply the VECM with dummy variables that as indicators to represent the major events. As the IF was launched in 20100416 which is the most dominant among the three for the other which were introduced until 20150416, we would like to firstly analyse the VECM of IF(index futures) and HS300(Index) before 20150416 and during the shorting ban on 20150709.
+  
   With reference of Gonzalo and Granger(1995) and Hasbrouck(1995), we employ the two price discovery measures to judge the information contents of between spot market and futures market respectively.
 \begin{table}[h]
   \caption{The Gonzalo and Granger(1995) measure summary of Chinese stock index futures market }
@@ -262,7 +295,8 @@ Firstly, we would like to introduce the advent of Chinese Stock Index Futures.
 
 \subsection{Market Efficiency}
 \subsubsection{Sequential Autocorrelation}
-We can simply apply the AR model to calculate the sequential autocorrelation as an indicater for measuring the efficiency of the market Index.
+
+  We can simply apply the AR model to calculate the sequential autocorrelation as an indicater for measuring the efficiency of the market Index.
 
 \begin{sidewaystable}[h]
   \caption{Box-Ljung test}
@@ -328,11 +362,12 @@ Since the Autocorrelation test, to some extent, is still implausible for the ske
 
 
 
-The table contains the results of two tests to judge the market efficiency of spot market. The statistics of Box-Ljung test are with lags level of 10, and p value of both are less than 1 percent, on the other hand, the statistics of Auto.VR test are also extremly salient with p value less than 1 percent. With the aid of the two tests, we know that the situation of the serial autocorrelation before and after shorting ban. Since even though the time window that cover the span of series before shorting ban happens to in the first part of "Big Fall" when start at the mid June 2015,which may affect the market efficiency. However, in comparison with the series after the shorting ban, the market efficiency of the former is still better than the latter. Furthermore, we can see that the shorting bans of both spot market and Index futures market do deteriorate the market efficiency of spot market.
+
+  The table contains the results of two tests to judge the market efficiency of spot market. The statistics of Box-Ljung test are with lags level of 5, and p value of both are less than 1 percent, on the other hand, the statistics of Auto.VR test are also extremly salient with p value less than 1 percent. With the aid of the two tests, we know that the situation of the serial autocorrelation before and after shorting ban. Since even though the time window that cover the span of series before shorting ban happens to in the first part of "Big Fall" when start at the mid June 2015,which may affect the market efficiency. However, in comparison with the series after the shorting ban, the market efficiency of the former is still better than the latter. Furthermore, we can see that the shorting bans of both spot market and Index futures market do deteriorate the market efficiency of spot market.
 
 \medskip
 
-With the comparision of variance ratio statistics, moreover, we can know that the variance statistics of r2 is larger than r1, which means that the efficiency of spot market do deteriorate after the shorting ban of index futures market measured by variance ratio test. Because the statistic of automatic variance ratio test with convergence in distribution to standard normal distirbution, both above statistics are significantly salient.
+  With the comparision of variance ratio statistics, moreover, we can know that the variance statistics of r2 is larger than r1, which means that the efficiency of spot market do deteriorate after the shorting ban of index futures market measured by variance ratio test. Because the statistic of automatic variance ratio test with convergence in distribution to standard normal distirbution, both above statistics are significantly salient.
 
 \section{Reference}
 
